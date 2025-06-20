@@ -45,7 +45,7 @@ replace_resolv() {
     RESOLV_REPLACED="${ROOT_DIR}/etc/resolv.conf"
     # save the existing one if needed
     if [ -e "$RESOLV_REPLACED" -o -L "$RESOLV_REPLACED" ]; then
-        RESOLV_SAVED="${ROOT_DIR}/etc/resolv.conf.chimera-chroot.$$"
+        RESOLV_SAVED="${ROOT_DIR}/etc/resolv.conf.neve-chroot.$$"
         # make space, this should not do anything
         rm -f "$RESOLV_SAVED" > /dev/null 2>&1
         # try moving, on failure unset saved
@@ -132,7 +132,7 @@ if [ "$REPLACE_RESOLV" -eq 1 ]; then
     replace_resolv
 fi
 
-if [ -f "${ROOT_DIR}/etc/chimera-release" ]; then
+if [ -f "${ROOT_DIR}/etc/neve-release" ]; then
     export SHELL=/bin/sh
 fi
 PS1="(chroot) $PS1" chroot "$ROOT_DIR" "$@"
